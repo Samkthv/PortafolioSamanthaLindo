@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samantha Lindo - Diseñadora Gráfica</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #000000;
+            --dark: #0a0a0a;
+            --gray-dark: #1a1a1a;
+            --gray: #666666;
+            --gray-light: #cccccc;
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        nav .logo {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: var(--black);
+            letter-spacing: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--black);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--black);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: var(--black);
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .floating-shape {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            top: 60%;
+            left: 15%;
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+
+        .hero-content {
+            text-align: center;
+            color: var(--white);
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 5%;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            font-size: 0.85em;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-content h1 {
+            font-size: 5.5em;
+            font-weight: 800;
+            letter-spacing: -4px;
+            margin-bottom: 20px;
+            line-height: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            opacity: 0.8;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 20px;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .cta-button {
+            padding: 18px 45px;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.4s ease;
+            display: inline-block;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .cta-primary {
+            background: var(--white);
+            color: var(--black);
+            border: 2px solid var(--white);
+        }
+
+        .cta-primary:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .cta-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        .about {
+            padding: 150px 8%;
+            background: var(--off-white);
+            position: relative;
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .about-image {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            background: var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                rgba(255, 255, 255, 0.03) 10px,
+                rgba(255, 255, 255, 0.03) 20px
+            );
+        }
+
+        .about-content h2 {
+            font-size: 3.5em;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: -3px;
+            color: var(--black);
+            line-height: 1.1;
+        }
+
+        .about-text {
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: var(--gray);
+            margin-bottom: 25px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 30px;
+            background: var(--white);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .stat:hover {
+            transform: translateY(-10px);
+            border-color: var(--black);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--black);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio {
+            padding: 150px 8%;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 4em;
+            font-weight: 800;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .section-header p {
+            font-size: 1.2em;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .portfolio-item {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            background: var(--off-white);
+            cursor: pointer;
+            transition: all 0.5s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-15px);
+            border-color: var(--black);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.7s ease;
+            filter: grayscale(100%);
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+            filter: grayscale(0%);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
+            padding: 50px 40px;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .portfolio-category {
+            display: inline-block;
+            padding: 5px 15px;
+            background: var(--white);
+            color: var(--black);
+            font-size: 0.75em;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-overlay h3 {
+            color: var(--white);
+            font-size: 1.8em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+
+        .portfolio-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .skills {
+            padding: 150px 8%;
+            background: var(--black);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skills::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border: 2px solid rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+        }
+
+        .skills-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header.white h2 {
+            color: var(--white);
+        }
+
+        .section-header.white p {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px 35px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--white);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .skill-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .skill-level {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact {
+            padding: 150px 8%;
+            background: var(--off-white);
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-container h2 {
+            font-size: 4em;
+            font-weight: 800;
+            letter-spacing: -3px;
+            margin-bottom: 30px;
+            color: var(--black);
+        }
+
+        .contact-container p {
+            font-size: 1.3em;
+            color: var(--gray);
+            margin-bottom: 50px;
+            line-height: 1.8;
+        }
+
+        .contact-email {
+            display: inline-block;
+            font-size: 2em;
+            font-weight: 600;
+            color: var(--black);
+            text-decoration: none;
+            padding: 20px 50px;
+            border: 3px solid var(--black);
+            transition: all 0.3s ease;
+            margin-bottom: 50px;
+            letter-spacing: -1px;
+        }
+
+        .contact-email:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .social-links a {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--black);
+            font-size: 1.5em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--black);
+            color: var(--white);
+            transform: scale(1.1) rotate(360deg);
+        }
+
+        footer {
+            background: var(--black);
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+            padding: 40px 8%;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content h1 { font-size: 4em; }
+            .about-container { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 5%; }
+            .nav-links { gap: 25px; }
+            nav a { font-size: 0.85em; }
+            .hero-content h1 { font-size: 3em; }
+            .section-header h2 { font-size: 2.5em; }
+            .about-content h2 { font-size: 2.5em; }
+            .about-stats { grid-template-columns: 1fr; }
+            .portfolio-item { height: 350px; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .contact-container h2 { font-size: 2.5em; }
+            .contact-email { font-size: 1.3em; padding: 15px 35px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">SL</div>
+        <div class="nav-links">
+            <a href="#about">Sobre Mí</a>
+            <a href="#portfolio">Trabajos</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#contact">Contacto</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg">
+            <div class="grid-pattern"></div>
+            <div class="floating-shape shape-1"></div>
+            <div class="floating-shape shape-2"></div>
+            <div class="floating-shape shape-3"></div>
+        </div>
+        <div class="hero-content">
+            <span class="hero-tag">Diseñadora Gráfica</span>
+            <h1>SAMANTHA<br>LINDO</h1>
+            <p class="subtitle">Transformando ideas en experiencias visuales únicas</p>
+            <div class="hero-cta">
+                <a href="#portfolio" class="cta-button cta-primary">Ver Portfolio</a>
+                <a href="#contact" class="cta-button cta-secondary">Contactar</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>Diseño con propósito</h2>
+                <p class="about-text">
+                    Soy una diseñadora gráfica especializada en crear identidades visuales que cuentan historias. Mi trabajo va más allá de lo estético: busco conectar marcas con personas a través del diseño estratégico.
+                </p>
+                <p class="about-text">
+                    Con experiencia en branding, diseño editorial y comunicación visual, transformo conceptos complejos en soluciones visuales claras, impactantes y memorables.
+                </p>
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">1+</div>
+                        <div class="stat-label">Años</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Proyectos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Clientes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <h2>Trabajos Destacados</h2>
+            <p>Una selección de proyectos que definen mi enfoque creativo</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://i.imgur.com/GFst2sy.jpeg" alt="Branding">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Branding</span>
+                    <h3>Branding & Publicidad</h3>
+                    <p>Estrategia visual de marca aplicada en contexto editorial y publicitario</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://i.imgur.com/pHNAIql.jpeg" alt="Editorial">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Periodico</span>
+                    <h3>Diagramación Periodística</h3>
+                    <p>Diseño de portada editorial con integración de contenido y publicidad</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://i.imgur.com/NZtA1JD.jpeg" alt="Digital">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Mandala</span>
+                    <h3>Diseño Ilustrativo & Mandala</h3>
+                    <p>Ilustración personalizada con técnica de mandala y paleta de colores vibrante</p>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://i.imgur.com/6EEO9GK.jpeg" alt="Digital">
+                <div class="portfolio-overlay">
+                    <span class="portfolio-category">Tipografía</span>
+                    <h3>Tipografía & Diseño Histórico</h3>
+                    <p>Estudio visual de la vida y obra del legendario diseñador tipográfico Adrian Frutiger</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills" id="skills">
+        <div class="skills-container">
+            <div class="section-header white">
+                <h2>Herramientas & Habilidades</h2>
+                <p>Dominio técnico al servicio de la creatividad</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <div class="skill-name">Adobe Illustrator</div>
+                    <div class="skill-level">Experto</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📸</div>
+                    <div class="skill-name">Adobe Photoshop</div>
+                    <div class="skill-level">Avanzado</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📖</div>
+                    <div class="skill-name">Adobe InDesign</div>
+                    <div class="skill-level">Experto</div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">✨</div>
+                    <div class="skill-name">After Effects</div>
+                    <div class="skill-level">Intermedio</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+    <div class="contact-container">
+        <h2>Contacto</h2>
+        <a href="mailto:samanthalindoboza@gmail.com" class="contact-email">samanthalindoboza@gmail.com</a>
+        <div class="social-links">
+            <a href="https://www.instagram.com/samthv_k/" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/51967675149" 
+               title="WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <footer>
+        <p>&copy; 2025 Samantha Lindo. Diseñado y desarrollado con ♥</p>
+    </footer>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 100);
+        });
+
+        const hoverElements = document.querySelectorAll('a, button, .portfolio-item');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(0)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+                cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero-content');
+            if (hero) {
+                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - (scrolled / 500);
+            }
+        });
+    </script>
+</body>
+</html>
